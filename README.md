@@ -1,5 +1,10 @@
 # Đồ án môn học: OOP
-### khánh
+
+# Mô tả game play
+
+## Nhân vật
+
+### Danh sách nhân vật
 
 
 
