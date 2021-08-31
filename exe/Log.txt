@@ -1,0 +1,121 @@
+
+<13:13:22 14/6/2021>
+<Dinh Nguyen Khanh>
+Troll;Earth;367.5;52.8;2.5;15
+Gyrycopter;Metal;0;41;2;27
+Naga Siren;Water;0;56;6;35.2
+<PC>
+Lanaya;Water;0;53;2;29
+Naga Siren;Water;122.41;56;6;32
+Luna;Metal;85.75;43;3;16.2
+<Earth>PLAYER WIN: PC
+<13:13:39 14/6/2021>
+<Dinh Nguyen Khanh>
+Sniper;Fire;-1.62;36;2;29
+Troll;Earth;556.15;48;2.5;13.5
+Luna;Metal;164.25;43;3;19.8
+<PC>
+Sniper;Fire;0;36;2;29
+Gyrycopter;Metal;0;41;2;33
+Gondar;Earth;0;45;6;36
+<Metal>PLAYER WIN: Dinh Nguyen Khanh
+<13:14:6 14/6/2021>
+<Dinh Nguyen Khanh>
+Naga Siren;Water;422.917;61.6;6;31.68
+Luna;Metal;234.25;43;3;18
+Gondar;Earth;0;45;6;36
+<Nguyen Si Liem>
+Sniper;Fire;0;36;1;29
+Gyrycopter;Metal;0;41;2;33
+Ursa;Earth;268.802;45;5;31.5
+<Metal>PLAYER WIN: Dinh Nguyen Khanh
+<13:14:29 14/6/2021>
+<Dinh Nguyen Khanh>
+Troll;Earth;429.11;48;2.5;15
+Gyrycopter;Metal;0;41;2;33
+Sniper;Fire;46.7;36;2;26.1
+<Hoang Ty>
+Trasex;Metal;0;40;2;27
+Ursa;Earth;101.39;45;5;35
+Gondar;Earth;0;45;6;40
+<Wood>PLAYER WIN: Dinh Nguyen Khanh
+<13:17:10 14/6/2021>
+<Van Toan 123>
+Sniper;Fire;0;36;2;29
+Troll;Earth;466.61;48;2.5;15
+Luna;Metal;75.2625;43;3;17.82
+<Cong Phuong 1>
+Treant Protector;Wood;500.25;62;1.5;37.62
+Trasex;Metal;0;40;2;24.3
+Lanaya;Water;0;53;4;29
+<Water>PLAYER WIN: Van Toan 123
+<13:17:41 14/6/2021>
+<Cong Trieu zz95>
+Sniper;Fire;0;36;2;26.1
+Treant Protector;Wood;113.5;68.2;1.5;41.8
+Trasex;Metal;0;40;1;26.73
+<PC>
+Troll;Earth;512;48;2.5;15
+Ursa;Earth;0;45;2.5;35
+Sniper;Fire;20.7;39.6;2;26.1
+<Earth>PLAYER WIN: PC
+<13:18:15 14/6/2021>
+<Cong Tien>
+Gyrycopter;Metal;0;41;2;33
+Treant Protector;Wood;259.25;62;0.75;37.62
+Sniper;Fire;0;39.6;2;29
+<PC>
+Gyrycopter;Metal;48.24;41;2;30
+Trasex;Metal;0;44;2;27
+Luna;Metal;117.15;43;1.5;18
+<Fire>PLAYER WIN: PC
+<13:45:10 14/6/2021>
+<Linh>
+Malphite;Earth;388;50;40;33
+Maokai;Wood;500;33;50;22
+Luna;Metal;107.242;43;3;18
+<Hoang>
+Sniper;Fire;0;36;2;26.1
+Troll;Earth;0;48;1.25;15
+Ursa;Earth;0;45;5;35
+<Wood>PLAYER WIN: Linh
+<13:46:11 14/6/2021>
+<Khoi >
+Maokai;Wood;525;30;50;18
+Maokai;Wood;525;30;50;18
+Maokai;Wood;525;30;50;18
+<Giang Tran>
+Maokai;Wood;525;30;50;18
+Maokai;Wood;525;30;50;18
+Maokai;Wood;525;30;50;18
+<Fire>TIE
+<13:46:33 14/6/2021>
+<123>
+Maokai;Wood;525;30;50;18
+Maokai;Wood;525;30;50;18
+Maokai;Wood;525;30;50;18
+<Tien Linh>
+Maokai;Wood;525;30;50;18
+Maokai;Wood;525;30;50;18
+Maokai;Wood;525;30;50;18
+<Water>TIE
+<22:0:2 18/6/2021>
+<khanh>
+Gyrycopter;Metal;8.42603;41;1;30
+Luna;Metal;257.242;43;3;18
+Ursa;Earth;137.39;45;5;35
+<PC>
+Sniper;Fire;0;39.6;2;26.1
+Gyrycopter;Metal;0;41;2;33
+Gyrycopter;Metal;0;41;2;33
+<Wood>PLAYER WIN: khanh
+<22:4:6 18/6/2021>
+<abc>
+Sniper;Fire;0;39.6;2;29
+Troll;Earth;466.61;48;2.5;15
+Gyrycopter;Metal;0;41;2;29.7
+<cr7>
+Gyrycopter;Metal;92;41;1;27
+Trasex;Metal;0;40;2;24.3
+Lanaya;Water;243.67;53;4;29
+<Water>PLAYER WIN: cr7
