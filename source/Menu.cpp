@@ -1,9 +1,11 @@
 ﻿#include "Menu.h"
 void menu()
 {
-	int choose[10] = {0, 0, 0, 0, 0, 0, 0 ,0 ,0 , 0};
+	int choose[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
 	string username_1 = "";
 	string username_2 = "";
+
 	while (true)
 	{
 		system("cls");
@@ -14,7 +16,6 @@ void menu()
 		cout << "\n|   ||  ||       ||       ||    ___|  | |_|   ||       ||       |    |   |  |       ||  |_|  ||  _    ||   ||  |";
 		cout << "\n|   |_| ||   _   || ||_|| ||   |___   |       ||   _   ||       |    |   |  |       ||       || | |   ||   |_| |";
 		cout << "\n|_______||__| |__||_|   |_||_______|  |______| |__| |__||_______|    |___|  |_______||_______||_|  |__||_______|";
-		
 
 		cout << "\n";
 		cout << "\nMAIN MENU";
@@ -26,12 +27,13 @@ void menu()
 		cin >> choose[1];
 		cin.clear();
 		cin.ignore(INT_MAX, '\n');
+
 		if (choose[1] == 1)
 		{
 			choose[2] = 0;
 			while (choose[2] != 3)
 			{
-				
+
 				system("cls");
 				cout << "\nSUB MENU";
 				cout << "\n		1. (PLAYER vs PC)";
@@ -41,26 +43,36 @@ void menu()
 				cin >> choose[2];
 				cin.clear();
 				cin.ignore(INT_MAX, '\n');
+
 				if (choose[2] == 1)
 				{
 					system("cls");
+
 					GAME game;
 					cout << "\nINPUT USERNAME-1 ....... ";
 					getline(cin, username_1);
+
 					system("cls");
-					game.setCheDo(1);
-					game.setUsername1(username_1);
-					game.setUsername2("PC");
-					game.chonTuong();
-					game.xuLyChung();
+
+					game.setMode(1);
+					game.setNameForUser1(username_1);
+					game.setNameForUser2("PC");
+					game.selectChampion();
+					game.commonProcessing();
+
 					system("cls");
-					game.hienThiTranDau();
-					game.danhNhau();
+
+					game.showMatch();
+					game.fighting();
+
 					system("cls");
+
 					game.print();
-					game.luuLog();
+					game.saveLog();
+
 					system("pause");
 					system("cls");
+
 					cout << "\nSUB MENU";
 					cout << "\n		1. EXIT";
 					cout << "\n		2. PLAY AGAIN";
@@ -68,6 +80,7 @@ void menu()
 					cin >> choose[3];
 					cin.clear();
 					cin.ignore(INT_MAX, '\n');
+
 					if (choose[3] == 1)
 					{
 						exit(0);
@@ -76,26 +89,37 @@ void menu()
 				if (choose[2] == 2)
 				{
 					system("cls");
+
 					cout << "\nINPUT USERNAME-1 ....... ";
 					getline(cin, username_1);
 					cout << "\nINPUT USERNAME-2 ....... ";
 					getline(cin, username_2);
+
 					system("cls");
+
 					GAME game;
-					game.setCheDo(2);
-					game.setUsername1(username_1);
-					game.setUsername2(username_2);
-					game.chonTuong();
+					game.setMode(2);
+					game.setNameForUser1(username_1);
+					game.setNameForUser2(username_2);
+					game.selectChampion();
+
 					system("cls");
-					game.xuLyChung();
+
+					game.commonProcessing();
+
 					system("cls");
-					game.hienThiTranDau();
-					game.danhNhau();
+
+					game.showMatch();
+					game.fighting();
+
 					system("cls");
+
 					game.print();
-					game.luuLog();
+					game.saveLog();
+
 					system("pause");
 					system("cls");
+
 					cout << "\nSUB MENU";
 					cout << "\n		1. EXIT";
 					cout << "\n		2. PLAY AGAIN";
@@ -103,13 +127,10 @@ void menu()
 					cin >> choose[4];
 					cin.clear();
 					cin.ignore(INT_MAX, '\n');
+
 					if (choose[4] == 1)
 					{
 						exit(0);
-					}
-					else
-					{
-
 					}
 				}
 			}
@@ -120,6 +141,7 @@ void menu()
 			while (choose[5] != 1)
 			{
 				system("cls");
+
 				cout << "\nSUB MENU";
 				cout << "\n		1. EXIT";
 				cout << "\n		2. LOG VIEW";
@@ -127,16 +149,18 @@ void menu()
 				cin >> choose[5];
 				cin.clear();
 				cin.ignore(INT_MAX, '\n');
+
 				if (choose[5] == 2)
 				{
 					system("cls");
 					LOG x;
-					x.docLog();
-					x.xemLogChiTiet();
+					x.readLog();
+					x.showLogDetailed();
 					system("pause");
 				}
 			}
 			system("cls");
+
 			cout << "\nSUB MENU";
 			cout << "\n		1. EXIT";
 			cout << "\n		2. BACK TO MAIN MENU";
@@ -144,6 +168,7 @@ void menu()
 			cin >> choose[6];
 			cin.clear();
 			cin.ignore(INT_MAX, '\n');
+
 			if (choose[6] == 1)
 			{
 				exit(0);
@@ -155,6 +180,7 @@ void menu()
 			while (choose[7] != 1)
 			{
 				system("cls");
+
 				cout << "\nSUB MENU";
 				cout << "\n		1. EXIT";
 				cout << "\n		2. INPUT HERO";
@@ -163,22 +189,24 @@ void menu()
 				cin >> choose[7];
 				cin.clear();
 				cin.ignore(INT_MAX, '\n');
+
 				if (choose[7] == 2)
 				{
 					system("cls");
 					GAME game;
-					game.themTuong();
+					game.addChampion();
 					system("pause");
 				}
 				if (choose[7] == 3)
 				{
 					system("cls");
 					GAME game;
-					game.xoaTuong();
+					game.deleteChampion();
 					system("pause");
 				}
 			}
 			system("cls");
+
 			cout << "\nSUB MENU";
 			cout << "\n		1. EXIT";
 			cout << "\n		2. BACK TO MAIN MENU";
@@ -186,18 +214,16 @@ void menu()
 			cin >> choose[8];
 			cin.clear();
 			cin.ignore(INT_MAX, '\n');
+
 			if (choose[8] == 1)
 			{
 				exit(0);
 			}
 		}
+
 		if (choose[1] == 4)
 		{
 			exit(0);
-		}
-		else
-		{
-			
 		}
 	}
 }

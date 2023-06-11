@@ -1,5 +1,6 @@
 ﻿#include "Log.h"
-vector<LOG> listLog;// danh sách log
+
+vector<LOG> listLog; // danh sách log
 void LOG::setH(int _h)
 {
 	h = _h;
@@ -48,82 +49,82 @@ int LOG::getYY()
 {
 	return yy;
 }
-void LOG::setUsername_1(string username)
+void LOG::setNameForUser1(string username)
 {
-	username_1 = username;
+	userName1 = username;
 }
-string LOG::getUsername_1()
+string LOG::getNameForUser1()
 {
-	return username_1;
+	return userName1;
 }
-void LOG::setUsername_2(string username)
+void LOG::setNameForUser2(string username)
 {
-	username_2 = username;
+	userName2 = username;
 }
-string LOG::getUsername_2()
+string LOG::getNameForUser2()
 {
-	return username_2;
+	return userName2;
 }
-void LOG::setListTuongPlayer_1(const vector<TUONG> x)
-{
-	for (int i = 0; i < x.size(); ++i)
-	{
-		TUONG t(x.at(i));
-		player_1.push_back(t);
-	}
-}
-vector<TUONG> LOG::getListTuongPlayer_1()
-{
-	return player_1;
-}
-void LOG::setListTuongPlayer_2(const vector<TUONG> x)
+void LOG::setListChampionForPlayer1(const vector<CHAMPION> x)
 {
 	for (int i = 0; i < x.size(); ++i)
 	{
-		TUONG t(x.at(i));
-		player_2.push_back(t);
+		CHAMPION t(x.at(i));
+		player1.push_back(t);
 	}
 }
-vector<TUONG> LOG::getListTuongPlayer_2()
+vector<CHAMPION> LOG::getListChampionForPlayer1()
 {
-	return player_2;
+	return player1;
 }
-void LOG::setMoiTruong(string _moiTruong)
+void LOG::setListChampionForPlayer2(const vector<CHAMPION> x)
 {
-	moiTruong = _moiTruong;
+	for (int i = 0; i < x.size(); ++i)
+	{
+		CHAMPION t(x.at(i));
+		player2.push_back(t);
+	}
 }
-string LOG::getMoiTruong()
+vector<CHAMPION> LOG::getListChampionForPlayer2()
 {
-	return moiTruong;
+	return player2;
 }
-void LOG::setKetQua(string _ketQua)
+void LOG::setEnv(string _env)
 {
-	ketQua = _ketQua;
+	env = _env;
 }
-string LOG::getKetQua()
+string LOG::getEnv()
 {
-	return ketQua;
+	return env;
 }
-ostream& operator << (ostream& outDev, LOG& x) // viết toán tử << cho log theo cấu trúc dễ đọc và đầy đủ
+void LOG::setResult(string _result)
+{
+	result = _result;
+}
+string LOG::getResult()
+{
+	return result;
+}
+ostream &operator<<(ostream &outDev, LOG &x) // viết toán tử << cho log theo cấu trúc dễ đọc và đầy đủ
 {
 	outDev << "\n<" << x.h << ":" << x.m << ":" << x.s << " " << x.dd << "/" << x.mm << "/" << x.yy << ">\n";
-	outDev << "<" << x.username_1 << ">\n";
+	outDev << "<" << x.userName1 << ">\n";
 	for (int i = 0; i < nChamp; i++)
 	{
-		x.player_1.at(i).print(outDev);
+		x.player1.at(i).print(outDev);
 		outDev << "\n";
 	}
-	outDev << "<" << x.username_2 << ">\n";
+	outDev << "<" << x.userName2 << ">\n";
 	for (int i = 0; i < nChamp; i++)
 	{
-		x.player_2.at(i).print(outDev);
+		x.player2.at(i).print(outDev);
 		outDev << "\n";
 	}
-	outDev << "<" << x.moiTruong << ">";
-	outDev << x.ketQua;
+	outDev << "<" << x.env << ">";
+	outDev << x.result;
 	return outDev;
 }
-istream& operator >> (istream& inDev, LOG& x) // đọc ra lại 
+istream &operator>>(istream &inDev, LOG &x) // đọc ra lại
 {
 	char c;
 	inDev >> c; // bỏ dòng đầu
@@ -142,33 +143,33 @@ istream& operator >> (istream& inDev, LOG& x) // đọc ra lại
 	x.yy = stoi(temp);
 	inDev >> c;
 	getline(inDev, temp, '>');
-	x.username_1 = temp;
+	x.userName1 = temp;
 	for (int i = 0; i < nChamp; ++i)
 	{
-		TUONG tuong;
-		inDev >> tuong;
-		x.player_1.push_back(tuong);
+		CHAMPION champion;
+		inDev >> champion;
+		x.player1.push_back(champion);
 	}
 	inDev >> c;
 	getline(inDev, temp, '>');
-	x.username_2 = temp;
+	x.userName2 = temp;
 	for (int i = 0; i < nChamp; ++i)
 	{
-		TUONG tuong;
-		inDev >> tuong;
-		x.player_2.push_back(tuong);
+		CHAMPION champion;
+		inDev >> champion;
+		x.player2.push_back(champion);
 	}
 	inDev >> c;
 	getline(inDev, temp, '>');
-	x.moiTruong = temp;
+	x.env = temp;
 	getline(inDev, temp, '\n');
-	x.ketQua = temp;
+	x.result = temp;
 	return inDev;
 }
-void LOG::docLog()
+void LOG::readLog()
 {
-	listLog.clear();					// xóa listLog cũ
-	fstream fileLog("Log.txt", ios::in);	// đọc log
+	listLog.clear();					 // xóa listLog cũ
+	fstream fileLog("Log.txt", ios::in); // đọc log
 	if (!fileLog)
 	{
 		cout << "\nCANNOT OPEN FILE!!!";
@@ -176,7 +177,7 @@ void LOG::docLog()
 	}
 	string temp;
 	getline(fileLog, temp, '\n');
-	if (temp != "")  // xem định dạng file có dòng đầu hay không
+	if (temp != "") // xem định dạng file có dòng đầu hay không
 	{
 		fileLog.seekg(0);
 	}
@@ -188,10 +189,10 @@ void LOG::docLog()
 	}
 	fileLog.close();
 }
-int LOG::xemLog()
+int LOG::showLog()
 {
 	cout << "\nHISTORY MATCH\n";
-	cout << "\n		0. EXIT";            // nếu ko có log thì thoát
+	cout << "\n		0. EXIT";				 // nếu ko có log thì thoát
 	for (int i = 0; i < listLog.size(); ++i) // in ra thời gian mỗi trận trong listLog
 	{
 		LOG temp = listLog.at(i);
@@ -202,7 +203,7 @@ int LOG::xemLog()
 	while (flag)
 	{
 		try
-		{										// bắt lỗi nhập 
+		{ // bắt lỗi nhập
 			cout << "\nINPUT TIME (INDEX): ";
 			cin >> idx;
 			if (cin.fail())
@@ -215,42 +216,42 @@ int LOG::xemLog()
 			{
 				throw 1;
 			}
-			flag = false;						// nếu nhập đúng thì dừng vòng lặp
+			flag = false; // nếu nhập đúng thì dừng vòng lặp
 		}
 		catch (int x)
 		{
 			if (x)
 			{
-				flag = true;				// cho nhập lại
+				flag = true; // cho nhập lại
 			}
 		}
 	}
 	system("cls");
 	return idx;
 }
-void LOG::xemLogChiTiet()
+void LOG::showLogDetailed()
 {
-	int idx = xemLog();
+	int idx = showLog();
 	if (idx == 0)
 	{
 		cout << "\n\n\n\n\n";
-		return;										// chọn thoát thì return
-	}						
+		return; // chọn thoát thì return
+	}
 	LOG temp = listLog.at(idx - 1);
 	cout << "\nMATCH DETAIL: \n";
-	cout << temp.ketQua;
-	cout << "\n\nTEAM " << temp.username_1;
+	cout << temp.result;
+	cout << "\n\nTEAM " << temp.userName1;
 	for (int i = 0; i < nChamp; ++i)
 	{
 		cout << "\n";
-		temp.player_1.at(i).print(cout);
+		temp.player1.at(i).print(cout);
 	}
-	cout << "\n\nTEAM " << temp.username_2;
+	cout << "\n\nTEAM " << temp.userName2;
 
 	for (int i = 0; i < nChamp; ++i)
 	{
 		cout << "\n";
-		temp.player_2.at(i).print(cout);
+		temp.player2.at(i).print(cout);
 	}
 	cout << "\n\n\n\n\n";
 }

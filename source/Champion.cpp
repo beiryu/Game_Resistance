@@ -1,180 +1,182 @@
 ﻿#include "Champion.h"
-TUONG::TUONG()
+
+CHAMPION::CHAMPION()
 {
-	ten = "";
-	he = "";
-	mau = 0;
-	cong = 0;
-	thu = 0;
-	tocDanh = 0;
+	name = "";
+	type = "";
+	health = 0;
+	attack = 0;
+	defense = 0;
+	attackSpeed = 0;
 }
-TUONG::TUONG(const TUONG& x)
+CHAMPION::CHAMPION(const CHAMPION &x)
 {
-	ten = x.ten;
-	he = x.he;
-	mau = x.mau;
-	cong = x.cong;
-	thu = x.thu;
-	tocDanh = x.tocDanh;
+	name = x.name;
+	type = x.type;
+	health = x.health;
+	attack = x.attack;
+	defense = x.defense;
+	attackSpeed = x.attackSpeed;
 }
-TUONG::TUONG(string _ten, string _he, float _mau, float _cong, float _thu, float _tocDanh)
+CHAMPION::CHAMPION(string _name, string _type, float _health, float _attack, float _defense, float _attackSpeed)
 {
-	ten = _ten;
-	he = _he;
-	mau = _mau;
-	cong = _cong;
-	thu = _thu;
-	tocDanh = _tocDanh;
+	name = _name;
+	type = _type;
+	health = _health;
+	attack = _attack;
+	defense = _defense;
+	attackSpeed = _attackSpeed;
 }
-void TUONG::setTen(string _ten)
+void CHAMPION::setName(string _name)
 {
-	ten = _ten;
+	name = _name;
 }
-void TUONG::setHe(string _he)
+void CHAMPION::setType(string _type)
 {
-	he = _he;
+	type = _type;
 }
 
-void TUONG::setMau(float _mau)
+void CHAMPION::setHealth(float _typealth)
 {
-	mau = _mau;
+	health = _typealth;
 }
-void TUONG::setCong(float _cong)
+void CHAMPION::setAttack(float _attack)
 {
-	cong = _cong;
+	attack = _attack;
 }
-void TUONG::setThu(float _thu)
+void CHAMPION::setDefense(float _defense)
 {
-	thu = _thu;
+	defense = _defense;
 }
-void TUONG::setTocDanh(float _tocDanh)
+void CHAMPION::setAttackSpeed(float _attackSpeed)
 {
-	tocDanh = _tocDanh;
+	attackSpeed = _attackSpeed;
 }
-string TUONG::getTen()
+string CHAMPION::getName()
 {
-	return ten;
+	return name;
 }
-string TUONG::getHe()
+string CHAMPION::getType()
 {
-	return he;
+	return type;
 }
-float TUONG::getMau()
+float CHAMPION::getHealth()
 {
-	return mau;
+	return health;
 }
-float TUONG::getCong()
+float CHAMPION::getAttack()
 {
-	return cong;
+	return attack;
 }
-float TUONG::getThu()
+float CHAMPION::getDefense()
 {
-	return thu;
+	return defense;
 }
-float TUONG::getTocDanh()
+float CHAMPION::getAttackSpeed()
 {
-	return tocDanh;
+	return attackSpeed;
 }
-string* TUONG::getHeTSTK()
+string *CHAMPION::getGandRType()
 {
-	string h = getHe();
-	string* tstk = new string[4];
+	string h = getType();
+	string *gr = new string[4];
 	if (h == "Water") // dựa vào quy luật tương sinh tương khắc để cho ra kết quả
 	{
-		tstk[0] = "Earth";
-		tstk[1] = "Metal";
-		tstk[2] = "Fire";
-		tstk[3] = "Wood";
+		gr[0] = "Earth";
+		gr[1] = "Metal";
+		gr[2] = "Fire";
+		gr[3] = "Wood";
 	}
 	else if (h == "Wood")
 	{
-		tstk[2] = "Earth";
-		tstk[0] = "Metal";
-		tstk[3] = "Fire";
-		tstk[1] = "Water";
+		gr[2] = "Earth";
+		gr[0] = "Metal";
+		gr[3] = "Fire";
+		gr[1] = "Water";
 	}
 	else if (h == "Fire")
 	{
-		tstk[3] = "Earth";
-		tstk[2] = "Metal";
-		tstk[0] = "Water";
-		tstk[1] = "Wood";
+		gr[3] = "Earth";
+		gr[2] = "Metal";
+		gr[0] = "Water";
+		gr[1] = "Wood";
 	}
 	else if (h == "Earth")
 	{
-		tstk[2] = "Water";
-		tstk[3] = "Metal";
-		tstk[1] = "Fire";
-		tstk[0] = "Wood";
+		gr[2] = "Water";
+		gr[3] = "Metal";
+		gr[1] = "Fire";
+		gr[0] = "Wood";
 	}
 	else if (h == "Metal")
 	{
-		tstk[1] = "Earth";
-		tstk[3] = "Water";
-		tstk[0] = "Fire";
-		tstk[2] = "Wood";
+		gr[1] = "Earth";
+		gr[3] = "Water";
+		gr[0] = "Fire";
+		gr[2] = "Wood";
 	}
 	else
 	{
-		return tstk;
+		return gr;
 	}
-	return tstk;
+	return gr;
 }
-float TUONG::thoiGianGietDich(TUONG dich)
+float CHAMPION::timeToKill(CHAMPION enemy)
 {
 	float time = 0;
-	float mauDich = dich.mau;
-	if (cong < dich.thu) return -1; // không đánh vào máu nổi	
-	while (mauDich > 0) 
+	float enemyHealth = enemy.health;
+	if (attack < enemy.defense)
+		return -1; // không đánh vào máu nổi
+	while (enemyHealth > 0)
 	{
-		mauDich -= (cong - dich.thu);
-		time += tocDanh;
+		enemyHealth -= (attack - enemy.defense);
+		time += attackSpeed;
 	}
 	return time;
 }
-bool TUONG::chet()
+bool CHAMPION::isDie()
 {
-	return mau == 0;
+	return health == 0;
 }
-void TUONG::print(ostream& outDev)
+void CHAMPION::print(ostream &outDev)
 {
-	outDev << getTen() << ";" << getHe() << ";" << getMau() << ";" << getCong() << ";" << getThu() << ";" << getTocDanh();
+	outDev << getName() << ";" << getType() << ";" << getHealth() << ";" << getAttack() << ";" << getDefense() << ";" << getAttackSpeed();
 }
-istream& operator >> (istream& inDev, TUONG& x)
+istream &operator>>(istream &inDev, CHAMPION &x)
 {
 	string temp;
 	getline(inDev, temp, ';');
-	x.ten = temp;
+	x.name = temp;
 	getline(inDev, temp, ';');
-	x.he = temp;
+	x.type = temp;
 	getline(inDev, temp, ';');
-	x.mau = stof(temp);
+	x.health = stof(temp);
 	getline(inDev, temp, ';');
-	x.cong = stof(temp);
+	x.attack = stof(temp);
 	getline(inDev, temp, ';');
-	x.thu = stof(temp);
+	x.defense = stof(temp);
 	getline(inDev, temp, '\n');
-	x.tocDanh = stof(temp);
+	x.attackSpeed = stof(temp);
 	return inDev;
 }
-ostream& operator << (ostream& outDev, TUONG& x)
+ostream &operator<<(ostream &outDev, CHAMPION &x)
 {
 	outDev << "\n";
 	x.print(outDev);
 	return outDev;
 }
-void TUONG::nhapThongTin()
+void CHAMPION::inputInfo()
 {
 	cout << "INPUT NAME: ";
-	getline(cin, ten);
+	getline(cin, name);
 	cout << "INPUT ORIGIN: ";
-	getline(cin, he);
+	getline(cin, type);
 	cout << "INPUT HEALTH: ";
-	cin >> mau;
+	cin >> health;
 	cout << "INPUT ATTACK DAMAGE: ";
-	cin >> cong;
+	cin >> attack;
 	cout << "INPUT ARMOR: ";
-	cin >> thu;
+	cin >> defense;
 	cout << "INPUT ATTACK SPEED: ";
-	cin >> tocDanh;
+	cin >> attackSpeed;
 }
